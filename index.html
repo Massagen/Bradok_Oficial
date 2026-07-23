@@ -11,8 +11,8 @@
     --black: #0a0a0a;
     --black-card: #141414;
     --black-soft: #1f1f1f;
-    --red: #e60000;
-    --red-hover: #cc0000;
+    --yellow: #f8c300;
+    --yellow-hover: #d9aa00;
     --white: #ffffff;
     --gray: #a0a0a0;
     --line: rgba(255, 255, 255, 0.1);
@@ -25,16 +25,16 @@
   .container { max-width: 1140px; margin: 0 auto; padding: 0 20px; }
 
   /* TOP BAR */
-  .top-bar { background: var(--red); color: var(--white); text-align: center; padding: 8px 12px; font-size: 13px; font-weight: 800; letter-spacing: 0.5px; text-transform: uppercase; }
+  .top-bar { background: var(--yellow); color: var(--black); text-align: center; padding: 8px 12px; font-size: 13px; font-weight: 800; letter-spacing: 0.5px; text-transform: uppercase; }
 
   /* HEADER */
   header { background: rgba(10, 10, 10, 0.95); backdrop-filter: blur(10px); padding: 16px 0; border-bottom: 1px solid var(--line); position: sticky; top:0; z-index: 100; }
   .nav-flex { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 15px; }
   .brand { display: flex; align-items: center; gap: 8px; font-size: 26px; font-weight: 900; letter-spacing: 1px; }
-  .brand span { color: var(--red); }
+  .brand span { color: var(--yellow); }
   
-  .btn-header-wa { background: var(--red); color: var(--white); padding: 10px 20px; border-radius: 4px; font-weight: 800; font-size: 13px; text-transform: uppercase; transition: background 0.3s; }
-  .btn-header-wa:hover { background: var(--red-hover); }
+  .btn-header-wa { background: var(--yellow); color: var(--black); padding: 10px 20px; border-radius: 4px; font-weight: 800; font-size: 13px; text-transform: uppercase; transition: background 0.3s; }
+  .btn-header-wa:hover { background: var(--yellow-hover); }
 
   /* HERO SECTION (COM WATERMARK DA LOGO) */
   .hero { 
@@ -45,14 +45,14 @@
       radial-gradient(circle at center, rgba(10, 10, 10, 0.85) 0%, var(--black) 90%),
       url('PNG%20(1)%20minha%20logo.jpg') no-repeat center 30%/380px auto;
   }
-  .hero-badge { border: 1px solid var(--red); color: var(--white); font-weight: 700; font-size: 12px; text-transform: uppercase; padding: 6px 16px; border-radius: 20px; display: inline-block; margin-bottom: 20px; background: rgba(230, 0, 0, 0.1); }
+  .hero-badge { border: 1px solid var(--yellow); color: var(--yellow); font-weight: 700; font-size: 12px; text-transform: uppercase; padding: 6px 16px; border-radius: 20px; display: inline-block; margin-bottom: 20px; background: rgba(248, 195, 0, 0.1); }
   .hero h1 { font-size: clamp(34px, 5.5vw, 62px); font-weight: 900; text-transform: uppercase; line-height: 1.1; margin-bottom: 18px; }
-  .hero h1 span { color: var(--red); }
+  .hero h1 span { color: var(--yellow); }
   .hero p { font-size: 18px; color: var(--gray); max-width: 680px; margin: 0 auto 32px; }
   
   .hero-buttons { display: flex; justify-content: center; gap: 15px; flex-wrap: wrap; }
-  .btn-main { background: var(--red); color: var(--white); font-weight: 900; padding: 16px 36px; font-size: 15px; border-radius: 4px; text-transform: uppercase; transition: all 0.3s; box-shadow: 0 6px 20px rgba(230,0,0,0.3); }
-  .btn-main:hover { background: var(--red-hover); transform: translateY(-3px); }
+  .btn-main { background: var(--yellow); color: var(--black); font-weight: 900; padding: 16px 36px; font-size: 15px; border-radius: 4px; text-transform: uppercase; transition: all 0.3s; box-shadow: 0 6px 20px rgba(248,195,0,0.25); }
+  .btn-main:hover { background: var(--yellow-hover); transform: translateY(-3px); }
   
   .btn-secondary { background: transparent; border: 2px solid var(--white); color: var(--white); font-weight: 800; padding: 14px 30px; font-size: 15px; border-radius: 4px; text-transform: uppercase; transition: all 0.3s; }
   .btn-secondary:hover { background: var(--white); color: var(--black); }
@@ -60,14 +60,14 @@
   /* BANNER DE VANTAGENS */
   .info-banner { background: var(--black-soft); border-y: 1px solid var(--line); padding: 22px 0; }
   .info-flex { display: flex; justify-content: space-around; flex-wrap: wrap; gap: 20px; text-align: center; }
-  .info-item h5 { font-size: 15px; font-weight: 800; color: var(--white); text-transform: uppercase; }
+  .info-item h5 { font-size: 15px; font-weight: 800; color: var(--yellow); text-transform: uppercase; }
   .info-item p { font-size: 13px; color: var(--gray); }
 
   /* CATEGORIAS (4 CARDS) */
   .categories { padding: 80px 0; background: var(--black); }
   .sec-title { text-align: center; margin-bottom: 50px; }
   .sec-title h2 { font-size: 38px; font-weight: 900; text-transform: uppercase; }
-  .sec-title p { color: var(--red); font-size: 13px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; margin-top: 4px; }
+  .sec-title p { color: var(--yellow); font-size: 13px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; margin-top: 4px; }
 
   .grid-4 { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 24px; }
   .card { 
@@ -80,9 +80,9 @@
     justify-content: space-between; 
     transition: all 0.3s; 
   }
-  .card:hover { border-color: var(--red); transform: translateY(-5px); box-shadow: 0 10px 25px rgba(230, 0, 0, 0.2); }
+  .card:hover { border-color: var(--yellow); transform: translateY(-5px); box-shadow: 0 10px 25px rgba(248, 195, 0, 0.15); }
   
-  .card-badge { background: rgba(255,255,255,0.05); color: var(--red); font-size: 11px; font-weight: 800; padding: 4px 10px; border-radius: 4px; border: 1px solid rgba(230, 0, 0, 0.3); width: fit-content; margin-bottom: 16px; text-transform: uppercase; }
+  .card-badge { background: rgba(255,255,255,0.05); color: var(--yellow); font-size: 11px; font-weight: 800; padding: 4px 10px; border-radius: 4px; border: 1px solid rgba(248, 195, 0, 0.3); width: fit-content; margin-bottom: 16px; text-transform: uppercase; }
   .card h3 { font-size: 24px; font-weight: 800; text-transform: uppercase; margin-bottom: 8px; }
   .card p { font-size: 14px; color: var(--gray); flex-grow: 1; margin-bottom: 20px; }
   
@@ -91,7 +91,7 @@
   .price-box b { font-size: 30px; font-weight: 900; color: var(--white); }
 
   .btn-card { background: var(--white); color: var(--black); font-weight: 800; font-size: 12px; padding: 12px; border-radius: 4px; text-align: center; text-transform: uppercase; transition: all 0.3s; }
-  .btn-card:hover { background: var(--red); color: var(--white); }
+  .btn-card:hover { background: var(--yellow); color: var(--black); }
 
   /* DISK ATACADO / CTA WHATSAPP (COM WATERMARK) */
   .cta-section { 
@@ -103,7 +103,7 @@
   }
   .cta-flex { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 30px; }
   .cta-info h3 { font-size: 36px; font-weight: 900; color: var(--white); text-transform: uppercase; }
-  .cta-info h3 span { color: var(--red); }
+  .cta-info h3 span { color: var(--yellow); }
   .cta-info p { font-size: 16px; color: var(--gray); margin-top: 8px; }
 
   /* FOOTER */
