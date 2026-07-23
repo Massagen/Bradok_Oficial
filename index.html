@@ -3,98 +3,99 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Bradok Oficial — Tabela de Atacado</title>
+<title>Bradok Oficial — Atacado Direto de Fábrica</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Oswald:wght@400;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Oswald:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
-  :root { --black:#080808; --gold:#d4af37; --gold-light:#f0d878; --white:#f7f5f0; --gray:#8a857b; --line:rgba(212, 175, 55, 0.25); }
+  :root { --black:#0a0908; --black-2:#141210; --black-3:#1c1916; --gold:#d4af37; --gold-light:#f0d878; --white:#f7f5f0; --gray:#9a9488; --line:rgba(212, 175, 55, 0.2); }
   *{margin:0;padding:0;box-sizing:border-box;}
-  body{background:var(--black);color:var(--white);font-family:'Oswald',sans-serif;}
-  h1,h2,h3{font-family:'Bebas Neue',sans-serif;}
-  .wrap{max-width:1000px;margin:0 auto;padding:0 20px;}
+  body{background:var(--black);color:var(--white);font-family:'Oswald',sans-serif;line-height:1.5;}
+  h1,h2,h3{font-family:'Bebas Neue',sans-serif;letter-spacing:0.04em;}
+  a{color:inherit;text-decoration:none;}
+  .wrap{max-width:1180px;margin:0 auto;padding:0 24px;}
+  header{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(10,9,8,0.95);backdrop-filter:blur(10px);border-bottom:1px solid var(--line);}
+  .nav{max-width:1180px;margin:0 auto;padding:16px 24px;display:flex;align-items:center;justify-content:space-between;}
+  .logo{font-size:28px;} .logo span{color:var(--gold);}
+  .nav-cta{border:1px solid var(--gold);color:var(--gold-light);padding:8px 20px;font-size:13px;text-transform:uppercase;border-radius:2px;}
   
-  .header-banner{text-align:center;padding:60px 0 30px;border-bottom:1px solid var(--line);}
-  .logo-text{font-size:36px;letter-spacing:2px;} .logo-text span{color:var(--gold);}
-  .sub-banner{color:var(--gold-light);text-transform:uppercase;letter-spacing:3px;font-size:12px;margin-top:5px;}
+  .hero{padding:140px 0 80px;text-align:center;background:radial-gradient(ellipse 800px 400px at 50% 0%, rgba(212,175,55,0.15), transparent 70%);}
+  .hero h1{font-size:clamp(44px,7vw,80px);} .hero h1 span{color:var(--gold);}
+  .hero p{color:var(--gray);font-size:18px;margin-top:12px;}
 
-  .pricing-list{margin:40px 0;}
-  .price-row{display:flex;align-items:center;justify-content:space-between;background:#111;border:1px solid var(--line);padding:24px 30px;margin-bottom:16px;border-left:4px solid var(--gold);border-radius:2px;}
-  @media(max-width:600px){.price-row{flex-direction:column;text-align:center;gap:15px;}}
-  .price-row h3{font-size:32px;letter-spacing:1px;}
-  .price-value{text-align:right;}
-  @media(max-width:600px){.price-value{text-align:center;}}
-  .price-value span{font-size:11px;color:var(--gray);text-transform:uppercase;display:block;}
-  .price-value b{font-size:36px;color:var(--gold-light);font-family:'Oswald',sans-serif;}
+  .categories{padding:60px 0;background:var(--black-2);border-top:1px solid var(--line);border-bottom:1px solid var(--line);}
+  .sec-title{text-align:center;margin-bottom:40px;}
+  .sec-title h2{font-size:48px;} .sec-title p{color:var(--gold);font-size:14px;letter-spacing:0.15em;text-transform:uppercase;}
 
-  .info-box{background:#141210;border:1px dashed var(--line);padding:20px;text-align:center;color:var(--gray);font-size:14px;margin-bottom:40px;}
-  .btn-wha{display:block;width:100%;text-align:center;background:var(--gold);color:#000;padding:20px;font-weight:700;font-size:18px;text-transform:uppercase;letter-spacing:1px;border-radius:2px;}
-  footer{text-align:center;padding:40px 0;color:var(--gray);font-size:12px;}
+  .grid-4{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:20px;}
+  .card-cat{background:var(--black-3);border:1px solid var(--line);padding:30px 24px;border-radius:4px;transition:all .3s ease;}
+  .card-cat:hover{border-color:var(--gold);transform:translateY(-4px);}
+  .badge-cat{background:rgba(212,175,55,0.1);color:var(--gold-light);padding:4px 12px;font-size:11px;border-radius:20px;display:inline-block;margin-bottom:16px;border:1px solid var(--line);}
+  .card-cat h3{font-size:28px;}
+  .price-tag{margin-top:20px;padding-top:16px;border-top:1px dashed var(--line);}
+  .price-tag span{font-size:12px;color:var(--gray);display:block;}
+  .price-tag b{font-size:32px;color:var(--gold-light);font-family:'Oswald',sans-serif;}
+
+  .cta-block{text-align:center;padding:80px 0;}
+  .btn-gold{background:linear-gradient(135deg,var(--gold-light),var(--gold));color:var(--black);padding:18px 40px;font-weight:700;font-size:16px;text-transform:uppercase;display:inline-block;border-radius:2px;box-shadow:0 10px 30px -10px rgba(212,175,55,0.4);}
+  footer{text-align:center;padding:24px;border-top:1px solid var(--line);color:var(--gray);font-size:13px;}
 </style>
 </head>
 <body>
-
-<div class="header-banner">
-  <div class="logo-text">BRADOK <span>OFICIAL</span></div>
-  <div class="sub-banner">Tabela Direta de Fábrica · Pedido Mínimo 5 Peças</div>
-</div>
-
-<div class="wrap">
-  <div class="pricing-list">
-    
-    <div class="price-row">
-      <div>
-        <h3>CAMISETA EGÍPCIA</h3>
-        <p style="color:var(--gray); font-size:13px;">Linha Premium · Altíssima Durabilidade</p>
-      </div>
-      <div class="price-value">
-        <span>A Partir de</span>
-        <b>R$ 46,00</b>
-      </div>
-    </div>
-
-    <div class="price-row">
-      <div>
-        <h3>CAMISETA PERUANA</h3>
-        <p style="color:var(--gray); font-size:13px;">Algodão Nobre · Toque Sutil & Macio</p>
-      </div>
-      <div class="price-value">
-        <span>A Partir de</span>
-        <b>R$ 43,00</b>
-      </div>
-    </div>
-
-    <div class="price-row">
-      <div>
-        <h3>POLOS PERUANAS</h3>
-        <p style="color:var(--gray); font-size:13px;">Corte Elegante · Gola com Fino Acabamento</p>
-      </div>
-      <div class="price-value">
-        <span>A Partir de</span>
-        <b>R$ 59,99</b>
-      </div>
-    </div>
-
-    <div class="price-row">
-      <div>
-        <h3>NACIONAL 30.1</h3>
-        <p style="color:var(--gray); font-size:13px;">Malha Penteada · Excelente Custo-Benefício</p>
-      </div>
-      <div class="price-value">
-        <span>A Partir de</span>
-        <b>R$ 36,00</b>
-      </div>
-    </div>
-
+<header>
+  <div class="nav">
+    <div class="logo">BRADOK <span>OFICIAL</span></div>
+    <a href="https://wa.me/5562996560784" class="nav-cta">Atacado</a>
   </div>
+</header>
 
-  <div class="info-box">
-    ✓ Grade totalmente livre (escolha modelos, cores e tamanhos)<br>
-    ✓ Envio imediato para todo o Brasil em até 24h
+<section class="hero">
+  <div class="wrap">
+    <h1>FABRICAÇÃO PRÓPRIA.<br><span>MARGEM MÁXIMA PARA VOCÊ.</span></h1>
+    <p>Pedido mínimo de apenas 5 peças. Misture modelos, cores e tamanhos.</p>
   </div>
+</section>
 
-  <a href="https://wa.me/5562996560784" class="btn-wha" target="_blank">Fazer Pedido pelo WhatsApp →</a>
-</div>
+<section class="categories">
+  <div class="wrap">
+    <div class="sec-title">
+      <p>Catálogo Selecionado</p>
+      <h2>NOSSAS 4 CATEGORIAS</h2>
+    </div>
+    <div class="grid-4">
+      <div class="card-cat">
+        <span class="badge-cat">Toque Nobre</span>
+        <h3>Camiseta Egípcia</h3>
+        <p style="color:var(--gray); font-size:14px;">Algodão Egípcio de altíssima maciez e durabilidade.</p>
+        <div class="price-tag"><span>A Partir de</span><b>R$ 46,00</b></div>
+      </div>
+      <div class="card-cat">
+        <span class="badge-cat">Campeã de Vendas</span>
+        <h3>Camiseta Peruana</h3>
+        <p style="color:var(--gray); font-size:14px;">Algodão nobre com caimento perfeito no corpo.</p>
+        <div class="price-tag"><span>A Partir de</span><b>R$ 43,00</b></div>
+      </div>
+      <div class="card-cat">
+        <span class="badge-cat">Premium & Elegante</span>
+        <h3>Polos Peruanas</h3>
+        <p style="color:var(--gray); font-size:14px;">Gola estruturada e bordado de alta precisão.</p>
+        <div class="price-tag"><span>A Partir de</span><b>R$ 59,99</b></div>
+      </div>
+      <div class="card-cat">
+        <span class="badge-cat">Giro Rápido</span>
+        <h3>Nacional 30.1</h3>
+        <p style="color:var(--gray); font-size:14px;">Malha 100% algodão penteado 30.1 de excelente custo.</p>
+        <div class="price-tag"><span>A Partir de</span><b>R$ 36,00</b></div>
+      </div>
+    </div>
+  </div>
+</section>
 
-<footer>© 2026 Bradok Oficial</footer>
+<section class="cta-block">
+  <div class="wrap">
+    <a href="https://wa.me/5562996560784" class="btn-gold" target="_blank">MONTAR SEU PEDIDO NO WHATSAPP →</a>
+  </div>
+</section>
+
+<footer>© 2026 Bradok Oficial. Todos os direitos reservados.</footer>
 </body>
 </html>
