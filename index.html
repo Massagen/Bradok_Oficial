@@ -26,8 +26,7 @@
   body { font-family: 'Montserrat', sans-serif; color: var(--white); background: var(--black); line-height: 1.4; overflow-x: hidden; }
   a { text-decoration: none; color: inherit; }
 
-  /* CONTAINER MAIS LARGO PARA CABER AS 4 COLUNAS TRANQUILAMENTE */
-  .container { max-width: 1320px; margin: 0 auto; padding: 0 15px; }
+  .container { max-width: 1360px; margin: 0 auto; padding: 0 15px; }
 
   /* TOP BAR */
   .top-bar { background: var(--gold); color: var(--black); text-align: center; padding: 8px 12px; font-size: 13px; font-weight: 800; letter-spacing: 0.5px; text-transform: uppercase; }
@@ -121,24 +120,17 @@
   .info-item h5 { font-size: 14px; font-weight: 800; color: var(--gold); text-transform: uppercase; letter-spacing: 0.5px; }
   .info-item p { font-size: 12px; color: var(--gray); margin-top: 2px; }
 
-  /* CATEGORIAS (GARANTINDO AS 4 NA MESMA LINHA) */
+  /* CATEGORIAS */
   .categories { padding: 45px 0 65px; background: var(--black); }
   .sec-title { text-align: center; margin-bottom: 30px; }
   .sec-title h2 { font-size: 32px; font-weight: 900; text-transform: uppercase; letter-spacing: -0.5px; }
   .sec-title p { color: var(--gold); font-size: 12px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; margin-top: 4px; }
 
-  /* GRID 4 COLUNAS DEFINITIVO */
+  /* GRID 4 COLUNAS PADRÃO PC */
   .grid-4 { 
     display: grid; 
     grid-template-columns: repeat(4, 1fr); 
-    gap: 14px; 
-  }
-
-  @media (max-width: 900px) {
-    .grid-4 { grid-template-columns: repeat(2, 1fr); }
-  }
-  @media (max-width: 500px) {
-    .grid-4 { grid-template-columns: 1fr; }
+    gap: 16px; 
   }
 
   .card { 
@@ -153,9 +145,10 @@
   }
   .card:hover { border-color: var(--gold); transform: translateY(-5px); box-shadow: 0 10px 25px rgba(0, 0, 0, 0.8), 0 0 12px rgba(248, 195, 0, 0.15); }
   
+  /* CONTAINER DA FOTO OTIMIZADO PARA MOSTRAR A CAMISETA */
   .card-img-box {
     width: 100%;
-    height: 180px; /* Altura ideal para enquadrar a foto do modelo */
+    height: 320px; /* Altura ideal no PC para exibir o corpo e a camisa */
     border-radius: 6px;
     overflow: hidden;
     margin-bottom: 12px;
@@ -168,11 +161,11 @@
     width: 100%;
     height: 100%;
     object-fit: cover;
-    object-position: top center; /* Foca na parte superior/rosto/peitoral do modelo */
+    object-position: center 20%; /* Enquadramento focado na altura do peito/camisa */
     image-rendering: -webkit-optimize-contrast;
     transition: transform 0.5s ease;
   }
-  .card:hover .card-img-box img { transform: scale(1.05); }
+  .card:hover .card-img-box img { transform: scale(1.04); }
 
   .card-content { display: flex; flex-direction: column; flex-grow: 1; justify-content: space-between; }
   .card-badge { background: rgba(255,255,255,0.04); color: var(--gold); font-size: 10px; font-weight: 800; padding: 3px 8px; border-radius: 4px; border: 1px solid rgba(248, 195, 0, 0.3); width: fit-content; margin-bottom: 8px; text-transform: uppercase; letter-spacing: 0.5px; }
@@ -185,6 +178,16 @@
 
   .btn-card { background: var(--white); color: var(--black); font-weight: 800; font-size: 11px; padding: 10px; border-radius: 4px; text-align: center; text-transform: uppercase; transition: all 0.3s ease; display: block; }
   .btn-card:hover { background: var(--gold); color: var(--black); }
+
+  /* RESPONSIVIDADE MOBILE / TABLET */
+  @media (max-width: 992px) {
+    .grid-4 { grid-template-columns: repeat(2, 1fr); }
+    .card-img-box { height: 350px; }
+  }
+  @media (max-width: 576px) {
+    .grid-4 { grid-template-columns: 1fr; }
+    .card-img-box { height: 380px; } /* No mobile dá destaque total para o corpo do modelo */
+  }
 
   /* CTA WHATSAPP */
   .cta-section { 
