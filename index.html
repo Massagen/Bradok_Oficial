@@ -1,256 +1,88 @@
-<!DOCTYPE html>
-<html lang="pt-BR">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Bradok Oficial — Atacado Direto de Fábrica</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800;900&display=swap" rel="stylesheet">
-<style>
-  :root {
-    --black: #0a0a0a;
-    --black-card: #141414;
-    --black-soft: #1f1f1f;
-    --yellow: #f8c300;
-    --yellow-hover: #d9aa00;
-    --white: #ffffff;
-    --gray: #a0a0a0;
-    --line: rgba(255, 255, 255, 0.1);
-  }
-
-  * { margin:0; padding:0; box-sizing:border-box; }
-  body { font-family: 'Montserrat', sans-serif; color: var(--white); background: var(--black); line-height: 1.6; overflow-x: hidden; }
-  a { text-decoration: none; color: inherit; }
-
-  .container { max-width: 1140px; margin: 0 auto; padding: 0 20px; }
-
-  /* TOP BAR */
-  .top-bar { background: var(--yellow); color: var(--black); text-align: center; padding: 8px 12px; font-size: 13px; font-weight: 800; letter-spacing: 0.5px; text-transform: uppercase; }
-
-  /* HEADER */
-  header { background: rgba(10, 10, 10, 0.95); backdrop-filter: blur(10px); padding: 16px 0; border-bottom: 1px solid var(--line); position: sticky; top:0; z-index: 100; }
-  .nav-flex { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 15px; }
-  .brand { display: flex; align-items: center; gap: 8px; font-size: 26px; font-weight: 900; letter-spacing: 1px; }
-  .brand span { color: var(--yellow); }
-  
-  .btn-header-wa { background: var(--yellow); color: var(--black); padding: 10px 20px; border-radius: 4px; font-weight: 800; font-size: 13px; text-transform: uppercase; transition: background 0.3s; }
-  .btn-header-wa:hover { background: var(--yellow-hover); }
-
-  /* HERO SECTION (COM WATERMARK DA LOGO) */
-  .hero { 
-    padding: 90px 0 70px; 
-    text-align: center; 
-    position: relative;
-    background: 
-      radial-gradient(circle at center, rgba(10, 10, 10, 0.85) 0%, var(--black) 90%),
-      url('PNG%20(1)%20minha%20logo.jpg') no-repeat center 30%/380px auto;
-  }
-  .hero-badge { border: 1px solid var(--yellow); color: var(--yellow); font-weight: 700; font-size: 12px; text-transform: uppercase; padding: 6px 16px; border-radius: 20px; display: inline-block; margin-bottom: 20px; background: rgba(248, 195, 0, 0.1); }
-  .hero h1 { font-size: clamp(34px, 5.5vw, 62px); font-weight: 900; text-transform: uppercase; line-height: 1.1; margin-bottom: 18px; }
-  .hero h1 span { color: var(--yellow); }
-  .hero p { font-size: 18px; color: var(--gray); max-width: 680px; margin: 0 auto 32px; }
-  
-  .hero-buttons { display: flex; justify-content: center; gap: 15px; flex-wrap: wrap; }
-  .btn-main { background: var(--yellow); color: var(--black); font-weight: 900; padding: 16px 36px; font-size: 15px; border-radius: 4px; text-transform: uppercase; transition: all 0.3s; box-shadow: 0 6px 20px rgba(248,195,0,0.25); }
-  .btn-main:hover { background: var(--yellow-hover); transform: translateY(-3px); }
-  
-  .btn-secondary { background: transparent; border: 2px solid var(--white); color: var(--white); font-weight: 800; padding: 14px 30px; font-size: 15px; border-radius: 4px; text-transform: uppercase; transition: all 0.3s; }
-  .btn-secondary:hover { background: var(--white); color: var(--black); }
-
-  /* BANNER DE VANTAGENS */
-  .info-banner { background: var(--black-soft); border-y: 1px solid var(--line); padding: 22px 0; }
-  .info-flex { display: flex; justify-content: space-around; flex-wrap: wrap; gap: 20px; text-align: center; }
-  .info-item h5 { font-size: 15px; font-weight: 800; color: var(--yellow); text-transform: uppercase; }
-  .info-item p { font-size: 13px; color: var(--gray); }
-
-  /* CATEGORIAS (4 CARDS) */
-  .categories { padding: 80px 0; background: var(--black); }
-  .sec-title { text-align: center; margin-bottom: 50px; }
-  .sec-title h2 { font-size: 38px; font-weight: 900; text-transform: uppercase; }
-  .sec-title p { color: var(--yellow); font-size: 13px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; margin-top: 4px; }
-
-  .grid-4 { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 24px; }
-  .card { 
-    background: var(--black-card); 
-    border: 1px solid var(--line); 
-    border-radius: 6px; 
-    padding: 32px 24px; 
-    display: flex; 
-    flex-direction: column; 
-    justify-content: space-between; 
-    transition: all 0.3s; 
-  }
-  .card:hover { border-color: var(--yellow); transform: translateY(-5px); box-shadow: 0 10px 25px rgba(248, 195, 0, 0.15); }
-  
-  .card-badge { background: rgba(255,255,255,0.05); color: var(--yellow); font-size: 11px; font-weight: 800; padding: 4px 10px; border-radius: 4px; border: 1px solid rgba(248, 195, 0, 0.3); width: fit-content; margin-bottom: 16px; text-transform: uppercase; }
-  .card h3 { font-size: 24px; font-weight: 800; text-transform: uppercase; margin-bottom: 8px; }
-  .card p { font-size: 14px; color: var(--gray); flex-grow: 1; margin-bottom: 20px; }
-  
-  .price-box { border-top: 1px dashed var(--line); padding-top: 16px; margin-bottom: 20px; }
-  .price-box span { font-size: 11px; color: var(--gray); text-transform: uppercase; display: block; }
-  .price-box b { font-size: 30px; font-weight: 900; color: var(--white); }
-
-  .btn-card { background: var(--white); color: var(--black); font-weight: 800; font-size: 12px; padding: 12px; border-radius: 4px; text-align: center; text-transform: uppercase; transition: all 0.3s; }
-  .btn-card:hover { background: var(--yellow); color: var(--black); }
-
-  /* DISK ATACADO / CTA WHATSAPP (COM WATERMARK) */
-  .cta-section { 
-    background: 
-      radial-gradient(circle at center, rgba(10, 10, 10, 0.9) 0%, var(--black) 100%),
-      url('PNG%20(1)%20minha%20logo.jpg') no-repeat center center/280px auto;
-    padding: 80px 0; 
-    border-top: 1px solid var(--line);
-  }
-  .cta-flex { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 30px; }
-  .cta-info h3 { font-size: 36px; font-weight: 900; color: var(--white); text-transform: uppercase; }
-  .cta-info h3 span { color: var(--yellow); }
-  .cta-info p { font-size: 16px; color: var(--gray); margin-top: 8px; }
-
-  /* FOOTER */
-  footer { background: #050505; color: var(--gray); padding: 30px 0; text-align: center; font-size: 13px; border-top: 1px solid var(--line); }
-  footer b { color: var(--white); }
-</style>
-</head>
-<body>
-
-<div class="top-bar">
-  🔥 ATACADO DIRETO DE FÁBRICA — PEDIDO MÍNIMO DE APENAS 5 PEÇAS!
+```
+<div class="header-actions">
+  <div class="social-icons">
+    <a href="[https://www.instagram.com/bradok_oficial1/](https://www.instagram.com/bradok_oficial1/)" target="_blank" title="Instagram"><i class="fa-brands fa-instagram"></i></a>
+    <a href="[https://www.tiktok.com/@bradok_oficial](https://www.tiktok.com/@bradok_oficial)" target="_blank" title="TikTok"><i class="fa-brands fa-tiktok"></i></a>
+    <a href="[https://www.youtube.com/@Bradok_oficial](https://www.youtube.com/@Bradok_oficial)" target="_blank" title="YouTube"><i class="fa-brands fa-youtube"></i></a>
+  </div>
+  <a href="[https://wa.me/5562996560784?text=Olá,%20gostaria%20de%20montar%20meu%20pedido%20no%20atacado](https://wa.me/5562996560784?text=Olá,%20gostaria%20de%20montar%20meu%20pedido%20no%20atacado)!" target="_blank" class="btn-header-wa">
+    <i class="fa-brands fa-whatsapp" style="font-size: 16px;"></i> WhatsApp
+  </a>
 </div>
 
-<header>
-  <div class="container nav-flex">
-    <div class="brand">
-      BRADOK <span>OFICIAL</span>
-    </div>
-    <a href="https://wa.me/5562996560784?text=Olá,%20gostaria%20de%20montar%20meu%20pedido%20no%20atacado!" target="_blank" class="btn-header-wa">
-      💬 ATENDIMENTO WHATSAPP
-    </a>
-  </div>
-</header>
+```
 
-<section class="hero">
-  <div class="container">
-    <span class="hero-badge">Qualidade Padrão Shopping · Grade Livre</span>
-    <h1>FABRICAÇÃO PRÓPRIA.<br><span>MARGEM MÁXIMA PARA SUA LOJA.</span></h1>
-    <p>Abasteça seu estoque com produtos de altíssimo padrão. Misture modelos, cores e tamanhos sem burocracia.</p>
-    <div class="hero-buttons">
-      <a href="https://wa.me/5562996560784?text=Olá,%20quero%20montar%20meu%20kit%20de%20atacado!" target="_blank" class="btn-main">Montar Pedido no WhatsApp</a>
-      <a href="#catalogo" class="btn-secondary">Ver Categorias</a>
+```
+<div class="grid-4">
+  
+  <!-- 1. Egípcia -->
+  <div class="card">
+    <div class="card-img-box">
+      <img src="[https://atacador.com.br/wp-content/uploads/2023/11/malha-egipcia-capa.jpg](https://atacador.com.br/wp-content/uploads/2023/11/malha-egipcia-capa.jpg)" alt="Camiseta Malha Egípcia">
+    </div>
+    <div class="card-content">
+      <span class="card-badge">Linha Nobre</span>
+      <h3>Camiseta Egípcia</h3>
+      <p>Algodão Egípcio de toque aveludado, caimento impecável e extrema durabilidade.</p>
+      <div class="price-box">
+        <span>A partir de</span>
+        <b>R$ 46,00</b>
+      </div>
+      <a href="[https://atacador.com.br/categoria-produto/1-camiseta-malha-egipcia/?v=jesse](https://atacador.com.br/categoria-produto/1-camiseta-malha-egipcia/?v=jesse)" target="_blank" class="btn-card">Ver Modelos no Site →</a>
     </div>
   </div>
-</section>
 
-<div class="info-banner">
-  <div class="container info-flex">
-    <div class="info-item">
-      <h5>📦 Mínimo 5 Peças</h5>
-      <p>Monte seu pedido com facilidade</p>
+  <!-- 2. Peruana -->
+  <div class="card">
+    <div class="card-img-box">
+      <img src="[https://atacador.com.br/wp-content/uploads/2023/11/peruana-pima-capa.jpg](https://atacador.com.br/wp-content/uploads/2023/11/peruana-pima-capa.jpg)" alt="Camiseta Peruana Pima">
     </div>
-    <div class="info-item">
-      <h5>🔀 Grade Totalmente Livre</h5>
-      <p>Escolha tamanhos e cores variados</p>
-    </div>
-    <div class="info-item">
-      <h5>⚡ Despacho Rápido</h5>
-      <p>Envio imediato após aprovação</p>
+    <div class="card-content">
+      <span class="card-badge">Mais Vendida</span>
+      <h3>Camiseta Peruana</h3>
+      <p>Algodão Pima 40.1 nobre com alta elasticidade e excelente conforto no corpo.</p>
+      <div class="price-box">
+        <span>A partir de</span>
+        <b>R$ 43,00</b>
+      </div>
+      <a href="[https://atacador.com.br/categoria-produto/5-camisetas-peruanas-pima-40-1/?v=jesse](https://atacador.com.br/categoria-produto/5-camisetas-peruanas-pima-40-1/?v=jesse)" target="_blank" class="btn-card">Ver Modelos no Site →</a>
     </div>
   </div>
+
+  <!-- 3. Polos Peruanas -->
+  <div class="card">
+    <div class="card-img-box">
+      <img src="[https://atacador.com.br/wp-content/uploads/2023/11/polo-peruana-capa.jpg](https://atacador.com.br/wp-content/uploads/2023/11/polo-peruana-capa.jpg)" alt="Polo Peruana">
+    </div>
+    <div class="card-content">
+      <span class="card-badge">Elegância Premium</span>
+      <h3>Polos Peruanas</h3>
+      <p>Modelagem clássica moderna, gola estruturada e bordados de alta precisão.</p>
+      <div class="price-box">
+        <span>A partir de</span>
+        <b>R$ 59,99</b>
+      </div>
+      <a href="[https://atacador.com.br/categoria-produto/4-polos-peruanas/?v=jesse](https://atacador.com.br/categoria-produto/4-polos-peruanas/?v=jesse)" target="_blank" class="btn-card">Ver Modelos no Site →</a>
+    </div>
+  </div>
+
+  <!-- 4. Nacional 30.1 -->
+  <div class="card">
+    <div class="card-img-box">
+      <img src="[https://atacador.com.br/wp-content/uploads/2023/11/nacional-301-capa.jpg](https://atacador.com.br/wp-content/uploads/2023/11/nacional-301-capa.jpg)" alt="Camiseta Nacional 30.1">
+    </div>
+    <div class="card-content">
+      <span class="card-badge">Giro Rápido</span>
+      <h3>Nacional 30.1 Peletizado</h3>
+      <p>Malha 100% algodão penteado 30.1 com acabamento peletizado e alto custo-benefício.</p>
+      <div class="price-box">
+        <span>A partir de</span>
+        <b>R$ 36,00</b>
+      </div>
+      <a href="[https://atacador.com.br/categoria-produto/camiseta-nacional-30-1/?v=jesse](https://atacador.com.br/categoria-produto/camiseta-nacional-30-1/?v=jesse)" target="_blank" class="btn-card">Ver Modelos no Site →</a>
+    </div>
+  </div>
+
 </div>
 
-<section class="categories" id="catalogo">
-  <div class="container">
-    <div class="sec-title">
-      <h2>Catálogo de Atacado</h2>
-      <p>Selecione a categoria para ver as opções no site</p>
-    </div>
-
-    <div class="grid-4">
-      
-      <!-- 1. Egípcia -->
-      <div class="card">
-        <div>
-          <span class="card-badge">Linha Nobre</span>
-          <h3>Camiseta Egípcia</h3>
-          <p>Algodão Egípcio de toque aveludado, caimento impecável e extrema durabilidade.</p>
-        </div>
-        <div>
-          <div class="price-box">
-            <span>A partir de</span>
-            <b>R$ 46,00</b>
-          </div>
-          <a href="https://atacador.com.br/categoria-produto/1-camiseta-malha-egipcia/?v=jesse" target="_blank" class="btn-card">Ver Modelos no Site →</a>
-        </div>
-      </div>
-
-      <!-- 2. Peruana -->
-      <div class="card">
-        <div>
-          <span class="card-badge">Mais Vendida</span>
-          <h3>Camiseta Peruana</h3>
-          <p>Algodão Pima 40.1 nobre com alta elasticidade e excelente conforto no corpo.</p>
-        </div>
-        <div>
-          <div class="price-box">
-            <span>A partir de</span>
-            <b>R$ 43,00</b>
-          </div>
-          <a href="https://atacador.com.br/categoria-produto/5-camisetas-peruanas-pima-40-1/?v=jesse" target="_blank" class="btn-card">Ver Modelos no Site →</a>
-        </div>
-      </div>
-
-      <!-- 3. Polos Peruanas -->
-      <div class="card">
-        <div>
-          <span class="card-badge">Elegância Premium</span>
-          <h3>Polos Peruanas</h3>
-          <p>Modelagem clássica moderna, gola estruturada e bordados de alta precisão.</p>
-        </div>
-        <div>
-          <div class="price-box">
-            <span>A partir de</span>
-            <b>R$ 59,99</b>
-          </div>
-          <a href="https://atacador.com.br/categoria-produto/4-polos-peruanas/?v=jesse" target="_blank" class="btn-card">Ver Modelos no Site →</a>
-        </div>
-      </div>
-
-      <!-- 4. Nacional 30.1 -->
-      <div class="card">
-        <div>
-          <span class="card-badge">Giro Rápido</span>
-          <h3>Nacional 30.1 Peletizado</h3>
-          <p>Malha 100% algodão penteado 30.1 com acabamento peletizado e alto custo-benefício.</p>
-        </div>
-        <div>
-          <div class="price-box">
-            <span>A partir de</span>
-            <b>R$ 36,00</b>
-          </div>
-          <a href="https://atacador.com.br/categoria-produto/camiseta-nacional-30-1/?v=jesse" target="_blank" class="btn-card">Ver Modelos no Site →</a>
-        </div>
-      </div>
-
-    </div>
-  </div>
-</section>
-
-<section class="cta-section">
-  <div class="container cta-flex">
-    <div class="cta-info">
-      <h3>PRONTO PARA <span>ABASTECER SEU ESTOQUE?</span></h3>
-      <p>Chame nossa equipe e monte seu pedido direto no WhatsApp.</p>
-    </div>
-    <div>
-      <a href="https://wa.me/5562996560784?text=Olá,%20vim%20pelo%20site%20e%20quero%20fazer%20um%20pedido!" target="_blank" class="btn-main">Chamar no WhatsApp →</a>
-    </div>
-  </div>
-</section>
-
-<footer>
-  <div class="container">
-    <p>© 2026 <b>Bradok Oficial</b>. Todos os direitos reservados.</p>
-  </div>
-</footer>
-
-</body>
-</html>
+```
