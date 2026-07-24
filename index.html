@@ -6,6 +6,9 @@
 <title>Bradok Oficial — Atacado Direto de Fábrica</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+<!-- ÍCONES FONT AWESOME -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
 <style>
   :root {
     --black: #0a0a0a;
@@ -13,6 +16,8 @@
     --black-soft: #1f1f1f;
     --yellow: #f8c300;
     --yellow-hover: #d9aa00;
+    --whatsapp-green: #25D366;
+    --whatsapp-hover: #1da851;
     --white: #ffffff;
     --gray: #a0a0a0;
     --line: rgba(255, 255, 255, 0.1);
@@ -28,31 +33,64 @@
   .top-bar { background: var(--yellow); color: var(--black); text-align: center; padding: 8px 12px; font-size: 13px; font-weight: 800; letter-spacing: 0.5px; text-transform: uppercase; }
 
   /* HEADER */
-  header { background: rgba(10, 10, 10, 0.95); backdrop-filter: blur(10px); padding: 16px 0; border-bottom: 1px solid var(--line); position: sticky; top:0; z-index: 100; }
+  header { background: rgba(10, 10, 10, 0.95); backdrop-filter: blur(10px); padding: 12px 0; border-bottom: 1px solid var(--line); position: sticky; top:0; z-index: 100; }
   .nav-flex { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 15px; }
-  .brand { display: flex; align-items: center; gap: 8px; font-size: 26px; font-weight: 900; letter-spacing: 1px; }
-  .brand span { color: var(--yellow); }
   
-  .btn-header-wa { background: var(--yellow); color: var(--black); padding: 10px 20px; border-radius: 4px; font-weight: 800; font-size: 13px; text-transform: uppercase; transition: background 0.3s; }
-  .btn-header-wa:hover { background: var(--yellow-hover); }
+  /* LOGO DA MARCA */
+  .brand-logo { display: flex; align-items: center; gap: 12px; }
+  .brand-logo img { height: 48px; width: auto; object-fit: contain; }
 
-  /* HERO SECTION (COM WATERMARK DA LOGO) */
+  /* SOCIAL LINKS & WA BUTTON */
+  .header-actions { display: flex; align-items: center; gap: 16px; flex-wrap: wrap; }
+  .social-icons { display: flex; align-items: center; gap: 12px; }
+  .social-icons a { color: var(--white); font-size: 18px; transition: color 0.3s; }
+  .social-icons a:hover { color: var(--yellow); }
+
+  .btn-header-wa { 
+    background: var(--whatsapp-green); 
+    color: var(--white); 
+    padding: 10px 18px; 
+    border-radius: 4px; 
+    font-weight: 800; 
+    font-size: 13px; 
+    text-transform: uppercase; 
+    transition: background 0.3s;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .btn-header-wa:hover { background: var(--whatsapp-hover); }
+
+  /* HERO SECTION */
   .hero { 
-    padding: 90px 0 70px; 
+    padding: 80px 0 60px; 
     text-align: center; 
     position: relative;
     background: 
-      radial-gradient(circle at center, rgba(10, 10, 10, 0.85) 0%, var(--black) 90%),
-      url('PNG%20(1)%20minha%20logo.jpg') no-repeat center 30%/380px auto;
+      radial-gradient(circle at center, rgba(10, 10, 10, 0.88) 0%, var(--black) 90%),
+      url('logo-bradok.png') no-repeat center 30%/350px auto;
   }
   .hero-badge { border: 1px solid var(--yellow); color: var(--yellow); font-weight: 700; font-size: 12px; text-transform: uppercase; padding: 6px 16px; border-radius: 20px; display: inline-block; margin-bottom: 20px; background: rgba(248, 195, 0, 0.1); }
-  .hero h1 { font-size: clamp(34px, 5.5vw, 62px); font-weight: 900; text-transform: uppercase; line-height: 1.1; margin-bottom: 18px; }
+  .hero h1 { font-size: clamp(32px, 5vw, 58px); font-weight: 900; text-transform: uppercase; line-height: 1.1; margin-bottom: 18px; }
   .hero h1 span { color: var(--yellow); }
   .hero p { font-size: 18px; color: var(--gray); max-width: 680px; margin: 0 auto 32px; }
   
   .hero-buttons { display: flex; justify-content: center; gap: 15px; flex-wrap: wrap; }
-  .btn-main { background: var(--yellow); color: var(--black); font-weight: 900; padding: 16px 36px; font-size: 15px; border-radius: 4px; text-transform: uppercase; transition: all 0.3s; box-shadow: 0 6px 20px rgba(248,195,0,0.25); }
-  .btn-main:hover { background: var(--yellow-hover); transform: translateY(-3px); }
+  .btn-main-wa { 
+    background: var(--whatsapp-green); 
+    color: var(--white); 
+    font-weight: 900; 
+    padding: 16px 32px; 
+    font-size: 15px; 
+    border-radius: 4px; 
+    text-transform: uppercase; 
+    transition: all 0.3s; 
+    box-shadow: 0 6px 20px rgba(37, 211, 102, 0.3);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .btn-main-wa:hover { background: var(--whatsapp-hover); transform: translateY(-3px); }
   
   .btn-secondary { background: transparent; border: 2px solid var(--white); color: var(--white); font-weight: 800; padding: 14px 30px; font-size: 15px; border-radius: 4px; text-transform: uppercase; transition: all 0.3s; }
   .btn-secondary:hover { background: var(--white); color: var(--black); }
@@ -74,7 +112,7 @@
     background: var(--black-card); 
     border: 1px solid var(--line); 
     border-radius: 6px; 
-    padding: 32px 24px; 
+    padding: 16px; 
     display: flex; 
     flex-direction: column; 
     justify-content: space-between; 
@@ -82,22 +120,39 @@
   }
   .card:hover { border-color: var(--yellow); transform: translateY(-5px); box-shadow: 0 10px 25px rgba(248, 195, 0, 0.15); }
   
-  .card-badge { background: rgba(255,255,255,0.05); color: var(--yellow); font-size: 11px; font-weight: 800; padding: 4px 10px; border-radius: 4px; border: 1px solid rgba(248, 195, 0, 0.3); width: fit-content; margin-bottom: 16px; text-transform: uppercase; }
-  .card h3 { font-size: 24px; font-weight: 800; text-transform: uppercase; margin-bottom: 8px; }
-  .card p { font-size: 14px; color: var(--gray); flex-grow: 1; margin-bottom: 20px; }
-  
-  .price-box { border-top: 1px dashed var(--line); padding-top: 16px; margin-bottom: 20px; }
-  .price-box span { font-size: 11px; color: var(--gray); text-transform: uppercase; display: block; }
-  .price-box b { font-size: 30px; font-weight: 900; color: var(--white); }
+  .card-img-box {
+    width: 100%;
+    height: 240px;
+    border-radius: 4px;
+    overflow: hidden;
+    margin-bottom: 16px;
+    background: var(--black-soft);
+  }
+  .card-img-box img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.4s ease;
+  }
+  .card:hover .card-img-box img { transform: scale(1.08); }
 
-  .btn-card { background: var(--white); color: var(--black); font-weight: 800; font-size: 12px; padding: 12px; border-radius: 4px; text-align: center; text-transform: uppercase; transition: all 0.3s; }
+  .card-content { display: flex; flex-direction: column; flex-grow: 1; justify-content: space-between; }
+  .card-badge { background: rgba(255,255,255,0.05); color: var(--yellow); font-size: 11px; font-weight: 800; padding: 4px 10px; border-radius: 4px; border: 1px solid rgba(248, 195, 0, 0.3); width: fit-content; margin-bottom: 12px; text-transform: uppercase; }
+  .card h3 { font-size: 22px; font-weight: 800; text-transform: uppercase; margin-bottom: 8px; }
+  .card p { font-size: 13px; color: var(--gray); margin-bottom: 16px; }
+  
+  .price-box { border-top: 1px dashed var(--line); padding-top: 12px; margin-bottom: 16px; }
+  .price-box span { font-size: 11px; color: var(--gray); text-transform: uppercase; display: block; }
+  .price-box b { font-size: 28px; font-weight: 900; color: var(--white); }
+
+  .btn-card { background: var(--white); color: var(--black); font-weight: 800; font-size: 12px; padding: 12px; border-radius: 4px; text-align: center; text-transform: uppercase; transition: all 0.3s; display: block; }
   .btn-card:hover { background: var(--yellow); color: var(--black); }
 
-  /* DISK ATACADO / CTA WHATSAPP (COM WATERMARK) */
+  /* CTA SECTION WHATSAPP */
   .cta-section { 
     background: 
       radial-gradient(circle at center, rgba(10, 10, 10, 0.9) 0%, var(--black) 100%),
-      url('PNG%20(1)%20minha%20logo.jpg') no-repeat center center/280px auto;
+      url('logo-bradok.png') no-repeat center center/260px auto;
     padding: 80px 0; 
     border-top: 1px solid var(--line);
   }
@@ -107,7 +162,10 @@
   .cta-info p { font-size: 16px; color: var(--gray); margin-top: 8px; }
 
   /* FOOTER */
-  footer { background: #050505; color: var(--gray); padding: 30px 0; text-align: center; font-size: 13px; border-top: 1px solid var(--line); }
+  footer { background: #050505; color: var(--gray); padding: 40px 0 20px; text-align: center; font-size: 13px; border-top: 1px solid var(--line); }
+  .footer-social { display: flex; justify-content: center; gap: 18px; margin-bottom: 20px; }
+  .footer-social a { color: var(--white); font-size: 22px; transition: color 0.3s; }
+  .footer-social a:hover { color: var(--yellow); }
   footer b { color: var(--white); }
 </style>
 </head>
@@ -119,12 +177,22 @@
 
 <header>
   <div class="container nav-flex">
-    <div class="brand">
-      BRADOK <span>OFICIAL</span>
+    <!-- LOGO OFICIAL -->
+    <div class="brand-logo">
+      <img src="logo-bradok.png" alt="Bradok Oficial Logo">
     </div>
-    <a href="https://wa.me/5562996560784?text=Olá,%20gostaria%20de%20montar%20meu%20pedido%20no%20atacado!" target="_blank" class="btn-header-wa">
-      💬 ATENDIMENTO WHATSAPP
-    </a>
+
+    <!-- REDES SOCIAIS E BOTAO WHATSAPP VERDE -->
+    <div class="header-actions">
+      <div class="social-icons">
+        <a href="https://instagram.com" target="_blank" title="Instagram"><i class="fa-brands fa-instagram"></i></a>
+        <a href="https://tiktok.com" target="_blank" title="TikTok"><i class="fa-brands fa-tiktok"></i></a>
+        <a href="https://youtube.com" target="_blank" title="YouTube"><i class="fa-brands fa-youtube"></i></a>
+      </div>
+      <a href="https://wa.me/5562996560784?text=Olá,%20gostaria%20de%20montar%20meu%20pedido%20no%20atacado!" target="_blank" class="btn-header-wa">
+        <i class="fa-brands fa-whatsapp" style="font-size: 16px;"></i> WhatsApp
+      </a>
+    </div>
   </div>
 </header>
 
@@ -134,7 +202,9 @@
     <h1>FABRICAÇÃO PRÓPRIA.<br><span>MARGEM MÁXIMA PARA SUA LOJA.</span></h1>
     <p>Abasteça seu estoque com produtos de altíssimo padrão. Misture modelos, cores e tamanhos sem burocracia.</p>
     <div class="hero-buttons">
-      <a href="https://wa.me/5562996560784?text=Olá,%20quero%20montar%20meu%20kit%20de%20atacado!" target="_blank" class="btn-main">Montar Pedido no WhatsApp</a>
+      <a href="https://wa.me/5562996560784?text=Olá,%20quero%20montar%20meu%20kit%20de%20atacado!" target="_blank" class="btn-main-wa">
+        <i class="fa-brands fa-whatsapp" style="font-size: 20px;"></i> Montar Pedido no WhatsApp
+      </a>
       <a href="#catalogo" class="btn-secondary">Ver Categorias</a>
     </div>
   </div>
@@ -168,12 +238,13 @@
       
       <!-- 1. Egípcia -->
       <div class="card">
-        <div>
+        <div class="card-img-box">
+          <img src="egipcia.jpg" alt="Camiseta Malha Egípcia">
+        </div>
+        <div class="card-content">
           <span class="card-badge">Linha Nobre</span>
           <h3>Camiseta Egípcia</h3>
           <p>Algodão Egípcio de toque aveludado, caimento impecável e extrema durabilidade.</p>
-        </div>
-        <div>
           <div class="price-box">
             <span>A partir de</span>
             <b>R$ 46,00</b>
@@ -184,12 +255,13 @@
 
       <!-- 2. Peruana -->
       <div class="card">
-        <div>
+        <div class="card-img-box">
+          <img src="peruana.jpg" alt="Camiseta Peruana Pima">
+        </div>
+        <div class="card-content">
           <span class="card-badge">Mais Vendida</span>
           <h3>Camiseta Peruana</h3>
           <p>Algodão Pima 40.1 nobre com alta elasticidade e excelente conforto no corpo.</p>
-        </div>
-        <div>
           <div class="price-box">
             <span>A partir de</span>
             <b>R$ 43,00</b>
@@ -200,12 +272,13 @@
 
       <!-- 3. Polos Peruanas -->
       <div class="card">
-        <div>
+        <div class="card-img-box">
+          <img src="polo.jpg" alt="Polo Peruana">
+        </div>
+        <div class="card-content">
           <span class="card-badge">Elegância Premium</span>
           <h3>Polos Peruanas</h3>
           <p>Modelagem clássica moderna, gola estruturada e bordados de alta precisão.</p>
-        </div>
-        <div>
           <div class="price-box">
             <span>A partir de</span>
             <b>R$ 59,99</b>
@@ -216,12 +289,13 @@
 
       <!-- 4. Nacional 30.1 -->
       <div class="card">
-        <div>
+        <div class="card-img-box">
+          <img src="nacional.jpg" alt="Camiseta Nacional 30.1">
+        </div>
+        <div class="card-content">
           <span class="card-badge">Giro Rápido</span>
           <h3>Nacional 30.1 Peletizado</h3>
           <p>Malha 100% algodão penteado 30.1 com acabamento peletizado e alto custo-benefício.</p>
-        </div>
-        <div>
           <div class="price-box">
             <span>A partir de</span>
             <b>R$ 36,00</b>
@@ -241,13 +315,20 @@
       <p>Chame nossa equipe e monte seu pedido direto no WhatsApp.</p>
     </div>
     <div>
-      <a href="https://wa.me/5562996560784?text=Olá,%20vim%20pelo%20site%20e%20quero%20fazer%20um%20pedido!" target="_blank" class="btn-main">Chamar no WhatsApp →</a>
+      <a href="https://wa.me/5562996560784?text=Olá,%20vim%20pelo%20site%20e%20quero%20fazer%20um%20pedido!" target="_blank" class="btn-main-wa">
+        <i class="fa-brands fa-whatsapp" style="font-size: 20px;"></i> Chamar no WhatsApp →
+      </a>
     </div>
   </div>
 </section>
 
 <footer>
   <div class="container">
+    <div class="footer-social">
+      <a href="https://instagram.com" target="_blank"><i class="fa-brands fa-instagram"></i></a>
+      <a href="https://tiktok.com" target="_blank"><i class="fa-brands fa-tiktok"></i></a>
+      <a href="https://youtube.com" target="_blank"><i class="fa-brands fa-youtube"></i></a>
+    </div>
     <p>© 2026 <b>Bradok Oficial</b>. Todos os direitos reservados.</p>
   </div>
 </footer>
