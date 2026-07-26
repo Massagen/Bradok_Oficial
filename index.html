@@ -277,13 +277,8 @@
   .stock-head .eyebrow{margin-bottom:14px;}
   .stock-head h2{font-size:clamp(28px,4vw,42px);font-weight:700;}
   .stock-head p{color:var(--ink-dim);font-size:15px;margin-top:10px;max-width:480px;}
-  .stock-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;background:var(--line);}
-  .stock-tile{aspect-ratio:1/1;overflow:hidden;background:#050505;}
-  .stock-tile img{width:100%;height:100%;object-fit:cover;filter:grayscale(20%);transition:transform .5s ease;}
-  .stock-tile:hover img{transform:scale(1.05);}
-  .stock-tile.pos-left img{object-position:0% 50%;}
-  .stock-tile.pos-center img{object-position:50% 50%;}
-  .stock-tile.pos-right img{object-position:100% 50%;}
+  .stock-grid{overflow:hidden;border-radius:2px;background:#050505;}
+  .stock-grid img{width:100%;height:auto;display:block;}
   @media (max-width:720px){.stock-grid{grid-template-columns:1fr 1fr;}}
 
   /* ---------- trust badges ---------- */
@@ -492,9 +487,7 @@
     </div>
   </div>
   <div class="stock-grid">
-    <div class="stock-tile pos-left"><img src="https://atacador.com.br/wp-content/uploads/2022/12/Banner-Header-High.webp" alt="Bradok — camisetas dobradas em estoque" loading="lazy"></div>
-    <div class="stock-tile pos-center"><img src="https://atacador.com.br/wp-content/uploads/2022/12/Banner-Header-High.webp" alt="Bradok — camisetas dobradas em estoque" loading="lazy"></div>
-    <div class="stock-tile pos-right"><img src="https://atacador.com.br/wp-content/uploads/2022/12/Banner-Header-High.webp" alt="Bradok — camisetas dobradas em estoque" loading="lazy"></div>
+    <img src="banner.jpg" alt="Bradok Oficial — ao finalizar sua compra, envie o número do pedido ao seu vendedor">
   </div>
 </section>
 
