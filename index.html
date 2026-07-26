@@ -79,16 +79,23 @@
   .hero{
     position:relative;
     min-height:100svh;
-    display:flex;flex-direction:column;justify-content:center;
+    display:flex;flex-direction:column;justify-content:flex-end;
     padding-top:76px;
     overflow:hidden;
+  }
+  .hero-bg{
+    position:absolute;inset:0;z-index:0;
+  }
+  .hero-bg img{
+    width:100%;height:100%;object-fit:cover;
+    filter:grayscale(25%) brightness(.55) contrast(1.05);
   }
   .hero::before{
     content:"";position:absolute;inset:0;
     background:
-      radial-gradient(ellipse 60% 50% at 80% 20%, rgba(200,167,101,0.10), transparent 60%),
-      linear-gradient(180deg, #0a0a0a 0%, #0a0a0a 65%, #0e0e0d 100%);
-    z-index:0;
+      radial-gradient(ellipse 60% 50% at 80% 15%, rgba(200,167,101,0.14), transparent 60%),
+      linear-gradient(180deg, rgba(10,10,10,.15) 0%, rgba(10,10,10,.55) 55%, rgba(10,10,10,.92) 100%);
+    z-index:1;
   }
   .hero-num{
     position:absolute;
@@ -98,12 +105,12 @@
     font-weight:700;
     line-height:1;
     color:transparent;
-    -webkit-text-stroke:1px rgba(228,200,138,0.55);
+    -webkit-text-stroke:1px rgba(228,200,138,0.3);
     text-shadow:
-      0 0 40px rgba(228,200,138,0.35),
-      0 0 90px rgba(200,167,101,0.25),
-      0 0 160px rgba(200,167,101,0.15);
-    z-index:0;
+      0 0 40px rgba(228,200,138,0.2),
+      0 0 90px rgba(200,167,101,0.15);
+    z-index:1;
+    opacity:.6;
     user-select:none;
     pointer-events:none;
     animation:glow 5s ease-in-out infinite;
@@ -112,7 +119,7 @@
     0%,100%{ -webkit-text-stroke-color:rgba(228,200,138,0.4); }
     50%{ -webkit-text-stroke-color:rgba(228,200,138,0.75); }
   }
-  .hero-content{position:relative;z-index:1;}
+  .hero-content{position:relative;z-index:2;padding-bottom:70px;}
   .eyebrow{
     font-size:13px;letter-spacing:.22em;color:var(--gold);
     display:flex;align-items:center;gap:12px;margin-bottom:22px;
@@ -144,15 +151,44 @@
   }
   .hero-list li::before{content:"—";color:var(--gold);flex-shrink:0;}
   .hero-actions{
-    margin-top:44px;display:flex;gap:16px;flex-wrap:wrap;align-items:center;
+    margin-top:44px;display:flex;flex-direction:column;gap:14px;align-items:flex-start;
   }
+  .btn-whatsapp{
+    background:#25D366;color:#fff;width:100%;max-width:440px;justify-content:center;
+    padding:22px 34px;font-size:15px;
+  }
+  .btn-whatsapp:hover{background:#2fe077;transform:translateY(-2px);}
+  .secondary-link{
+    font-size:13px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;
+    color:var(--ink-dim);border-bottom:1px solid var(--line);padding-bottom:4px;
+    transition:.2s;
+  }
+  .secondary-link:hover{color:var(--ink);border-color:var(--ink-dim);}
   .vip-link{
-    margin-top:22px;display:inline-flex;align-items:center;gap:8px;
+    margin-top:22px;display:inline-flex;align-items:center;gap:10px;
     font-size:13px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;
     color:var(--gold-bright);border-bottom:1px solid var(--gold-dim);padding-bottom:4px;
     transition:.2s;
   }
   .vip-link:hover{border-color:var(--gold-bright);}
+  .vip-link svg{flex-shrink:0;}
+
+  /* ---------- big WhatsApp closer button ---------- */
+  .wa-big{
+    display:flex;flex-direction:column;align-items:center;gap:18px;
+    padding:0 0 80px;text-align:center;
+  }
+  .wa-big-link{
+    display:inline-flex;align-items:center;gap:16px;
+    background:#1fae59;color:#fff;
+    padding:22px 44px;border-radius:100px;
+    font-family:'Oswald',sans-serif;font-weight:600;font-size:16px;letter-spacing:.04em;text-transform:uppercase;
+    transition:transform .2s ease, box-shadow .2s ease;
+    box-shadow:0 0 0 rgba(31,174,89,0);
+  }
+  .wa-big-link:hover{transform:translateY(-3px) scale(1.02);box-shadow:0 12px 40px rgba(31,174,89,0.35);}
+  .wa-big-link svg{flex-shrink:0;}
+  .wa-big-sub{font-size:13px;color:var(--ink-dim);letter-spacing:.03em;}
   .btn{
     font-size:14px;font-weight:600;letter-spacing:.06em;
     padding:18px 34px;border-radius:2px;
@@ -163,9 +199,14 @@
   .btn-primary:hover{background:var(--gold-bright);transform:translateY(-2px);}
   .btn-ghost{border:1px solid var(--line);color:var(--ink);}
   .btn-ghost:hover{border-color:var(--gold);color:var(--gold-bright);transform:translateY(-2px);}
+  .wa-icon{
+    display:inline-flex;align-items:center;justify-content:center;
+    width:20px;height:20px;border-radius:6px;background:#25D366;flex-shrink:0;
+  }
+  .wa-icon svg{width:12px;height:12px;}
 
   .hero-social{
-    position:absolute;right:24px;bottom:120px;z-index:1;
+    position:absolute;right:24px;bottom:120px;z-index:2;
     display:flex;flex-direction:column;gap:18px;
   }
   .hero-social a{width:38px;height:38px;border:1px solid var(--line);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:13px;color:var(--ink-dim);transition:.2s;}
@@ -192,6 +233,18 @@
     .strip-item{border-right:none;border-bottom:1px solid var(--line);}
     .strip-item:last-child{border-bottom:none;}
   }
+
+  /* ---------- stock proof ---------- */
+  .stock{padding:90px 0 30px;}
+  .stock-head{margin-bottom:40px;}
+  .stock-head .eyebrow{margin-bottom:14px;}
+  .stock-head h2{font-size:clamp(28px,4vw,42px);font-weight:700;}
+  .stock-head p{color:var(--ink-dim);font-size:15px;margin-top:10px;max-width:480px;}
+  .stock-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;background:var(--line);}
+  .stock-tile{aspect-ratio:1/1;overflow:hidden;background:#050505;}
+  .stock-tile img{width:100%;height:100%;object-fit:cover;filter:grayscale(20%);transition:transform .5s ease;}
+  .stock-tile:hover img{transform:scale(1.05);}
+  @media (max-width:720px){.stock-grid{grid-template-columns:1fr 1fr;}}
 
   /* ---------- section heading ---------- */
   .section{padding:120px 0;}
@@ -301,6 +354,7 @@
 </header>
 
 <section class="hero">
+  <div class="hero-bg"><img src="egipcia.jpg" alt="Bradok Oficial — malha premium"></div>
   <div class="hero-num">5</div>
   <div class="wrap hero-content">
     <div class="eyebrow">Atacado direto de fábrica</div>
@@ -312,10 +366,18 @@
       <li>Correios ou transportadora</li>
     </ul>
     <div class="hero-actions">
-      <a class="btn btn-primary" href="https://wa.me/5562996560784?text=Olá,%20gostaria%20de%20montar%20meu%20pedido%20no%20atacado!" target="_blank" rel="noopener">Montar Pedido no WhatsApp</a>
-      <a class="btn btn-ghost" href="#catalogo">Ver Catálogo</a>
+      <a class="btn btn-whatsapp" href="https://wa.me/5562996560784?text=Olá,%20gostaria%20de%20montar%20meu%20pedido%20no%20atacado!" target="_blank" rel="noopener">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="#fff"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5.1-1.3A10 10 0 1 0 12 2zm0 18.2a8.2 8.2 0 0 1-4.2-1.1l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.4-.7-1.7-.8s-.4-.1-.6.1-.7.8-.8 1-.3.2-.6.1a6.7 6.7 0 0 1-2-1.2 7.4 7.4 0 0 1-1.4-1.7c-.1-.2 0-.4.1-.5s.2-.3.4-.4a1.5 1.5 0 0 0 .2-.4.4.4 0 0 0 0-.4c-.1-.1-.6-1.4-.8-1.9s-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2c0 1.3.9 2.6 1.1 2.8s1.7 2.7 4.2 3.7a14.4 14.4 0 0 0 1.4.5 3.4 3.4 0 0 0 1.5.1c.5-.1 1.4-.6 1.6-1.1a2 2 0 0 0 .1-1.1c-.1-.1-.3-.2-.5-.3z"/></svg>
+        Atendimento no WhatsApp
+      </a>
     </div>
-    <a class="vip-link" href="https://chat.whatsapp.com/Jk9zr0uF5CRIl05U2LHHwM?s=cl&p=a&ilr=4&amv=0" target="_blank" rel="noopener">Participe do Grupo VIP →</a>
+    <div style="display:flex;gap:24px;flex-wrap:wrap;margin-top:20px;align-items:center;">
+      <a class="secondary-link" href="#catalogo">Ver Catálogo</a>
+      <a class="vip-link" style="margin-top:0;" href="https://chat.whatsapp.com/Jk9zr0uF5CRIl05U2LHHwM?s=cl&p=a&ilr=4&amv=0" target="_blank" rel="noopener">
+        <span class="wa-icon"><svg viewBox="0 0 24 24" fill="#fff"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5.1-1.3A10 10 0 1 0 12 2zm0 18.2a8.2 8.2 0 0 1-4.2-1.1l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.4-.7-1.7-.8s-.4-.1-.6.1-.7.8-.8 1-.3.2-.6.1a6.7 6.7 0 0 1-2-1.2 7.4 7.4 0 0 1-1.4-1.7c-.1-.2 0-.4.1-.5s.2-.3.4-.4a1.5 1.5 0 0 0 .2-.4.4.4 0 0 0 0-.4c-.1-.1-.6-1.4-.8-1.9s-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2c0 1.3.9 2.6 1.1 2.8s1.7 2.7 4.2 3.7a14.4 14.4 0 0 0 1.4.5 3.4 3.4 0 0 0 1.5.1c.5-.1 1.4-.6 1.6-1.1a2 2 0 0 0 .1-1.1c-.1-.1-.3-.2-.5-.3z"/></svg></span>
+        Grupo VIP →
+      </a>
+    </div>
   </div>
   <div class="hero-social">
     <a href="https://www.instagram.com/bradok_oficial1/" target="_blank" rel="noopener" aria-label="Instagram">
@@ -330,25 +392,20 @@
   </div>
 </section>
 
-<div class="strip">
+<section class="stock">
   <div class="wrap">
-    <div class="strip-item">
-      <div class="strip-num">01</div>
-      <h3>Mínimo 5 Peças</h3>
-      <p>Monte seu pedido com facilidade, sem lote alto de entrada.</p>
-    </div>
-    <div class="strip-item">
-      <div class="strip-num">02</div>
-      <h3>Grade Totalmente Livre</h3>
-      <p>Escolha tamanhos e cores variados dentro do mesmo pedido.</p>
-    </div>
-    <div class="strip-item">
-      <div class="strip-num">03</div>
-      <h3>Despacho Rápido</h3>
-      <p>Envio imediato após aprovação, com rastreio Correios.</p>
+    <div class="stock-head reveal">
+      <div class="eyebrow">Estoque real, sem enrolação</div>
+      <h2>O que você vê é o que você recebe.</h2>
+      <p>Peças embaladas e prontas pra envio direto do nosso estoque — sem intermediário, sem lote misturado.</p>
     </div>
   </div>
-</div>
+  <div class="stock-grid">
+    <div class="stock-tile"><img src="estoque-1.jpg" alt="Estoque Bradok — prateleiras" loading="lazy"></div>
+    <div class="stock-tile"><img src="estoque-2.jpg" alt="Estoque Bradok — peças embaladas" loading="lazy"></div>
+    <div class="stock-tile"><img src="estoque-3.jpg" alt="Estoque Bradok — etiquetas originais" loading="lazy"></div>
+  </div>
+</section>
 
 <section class="section" id="catalogo">
   <div class="wrap">
@@ -422,12 +479,40 @@
   </div>
 </section>
 
+<div class="strip">
+  <div class="wrap">
+    <div class="strip-item">
+      <div class="strip-num">01</div>
+      <h3>Mínimo 5 Peças</h3>
+      <p>Monte seu pedido com facilidade, sem lote alto de entrada.</p>
+    </div>
+    <div class="strip-item">
+      <div class="strip-num">02</div>
+      <h3>Grade Totalmente Livre</h3>
+      <p>Escolha tamanhos e cores variados dentro do mesmo pedido.</p>
+    </div>
+    <div class="strip-item">
+      <div class="strip-num">03</div>
+      <h3>Despacho Rápido</h3>
+      <p>Envio imediato após aprovação, com rastreamento em tempo real.</p>
+    </div>
+  </div>
+</div>
+
 <div class="proof" id="numeros">
   <div class="wrap">
     <div class="stat reveal"><div class="stat-num">300+</div><div class="stat-label">Envios Realizados</div></div>
     <div class="stat reveal"><div class="stat-num">4</div><div class="stat-label">Categorias Ativas</div></div>
     <div class="stat reveal"><div class="stat-num">5</div><div class="stat-label">Peças Pedido Mínimo</div></div>
   </div>
+</div>
+
+<div class="wa-big reveal">
+  <a class="wa-big-link" href="https://chat.whatsapp.com/Jk9zr0uF5CRIl05U2LHHwM?s=cl&p=a&ilr=4&amv=0" target="_blank" rel="noopener">
+    <svg width="26" height="26" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5.1-1.3A10 10 0 1 0 12 2zm0 18.2a8.2 8.2 0 0 1-4.2-1.1l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.4-.7-1.7-.8s-.4-.1-.6.1-.7.8-.8 1-.3.2-.6.1a6.7 6.7 0 0 1-2-1.2 7.4 7.4 0 0 1-1.4-1.7c-.1-.2 0-.4.1-.5s.2-.3.4-.4a1.5 1.5 0 0 0 .2-.4.4.4 0 0 0 0-.4c-.1-.1-.6-1.4-.8-1.9s-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2c0 1.3.9 2.6 1.1 2.8s1.7 2.7 4.2 3.7a14.4 14.4 0 0 0 1.4.5 3.4 3.4 0 0 0 1.5.1c.5-.1 1.4-.6 1.6-1.1a2 2 0 0 0 .1-1.1c-.1-.1-.3-.2-.5-.3z"/></svg>
+    Entrar no Grupo VIP
+  </a>
+  <div class="wa-big-sub">Novidades, promoções exclusivas e feedback direto com nossa equipe</div>
 </div>
 
 <section class="closer" id="contato">
