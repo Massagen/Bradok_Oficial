@@ -234,17 +234,29 @@
     .strip-item:last-child{border-bottom:none;}
   }
 
-  /* ---------- stock proof ---------- */
+  /* ---------- stock proof / categorias de destaque ---------- */
   .stock{padding:90px 0 30px;}
   .stock-head{margin-bottom:40px;}
   .stock-head .eyebrow{margin-bottom:14px;}
   .stock-head h2{font-size:clamp(28px,4vw,42px);font-weight:700;}
   .stock-head p{color:var(--ink-dim);font-size:15px;margin-top:10px;max-width:480px;}
-  .stock-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;background:var(--line);}
-  .stock-tile{aspect-ratio:1/1;overflow:hidden;background:#050505;}
+  .stock-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:2px;background:var(--line);}
+  .stock-tile{
+    aspect-ratio:1/1;overflow:hidden;background:#050505;position:relative;display:block;
+  }
   .stock-tile img{width:100%;height:100%;object-fit:cover;filter:grayscale(20%);transition:transform .5s ease;}
   .stock-tile:hover img{transform:scale(1.05);}
-  @media (max-width:720px){.stock-grid{grid-template-columns:1fr 1fr;}}
+  .stock-tile-overlay{
+    position:absolute;inset:0;
+    background:linear-gradient(180deg, rgba(0,0,0,0.1) 0%, rgba(0,0,0,0.75) 100%);
+    display:flex;align-items:flex-end;padding:16px;
+  }
+  .stock-tile-title{
+    font-family:'Oswald',sans-serif;font-size:16px;font-weight:600;color:var(--ink);
+    letter-spacing:.05em;text-transform:uppercase;
+  }
+  @media (max-width:820px){.stock-grid{grid-template-columns:repeat(2,1fr);}}
+  @media (max-width:480px){.stock-grid{grid-template-columns:1fr;}}
 
   /* ---------- section heading ---------- */
   .section{padding:120px 0;}
@@ -354,7 +366,7 @@
 </header>
 
 <section class="hero">
-  <div class="hero-bg"><img src="egipcia.jpg" alt="Bradok Oficial — malha premium"></div>
+  <div class="hero-bg"><img src="https://atacador.com.br/categoria-produto/1-camiseta-malha-egipcia/?v=jesse" alt="Bradok Oficial — malha premium"></div>
   <div class="hero-num">5</div>
   <div class="wrap hero-content">
     <div class="eyebrow">Atacado direto de fábrica</div>
@@ -395,15 +407,36 @@
 <section class="stock">
   <div class="wrap">
     <div class="stock-head reveal">
-      <div class="eyebrow">Estoque real, sem enrolação</div>
-      <h2>O que você vê é o que você recebe.</h2>
-      <p>Peças embaladas e prontas pra envio direto do nosso estoque — sem intermediário, sem lote misturado.</p>
+      <div class="eyebrow">Categorias Principais</div>
+      <h2>Nossas Linhas de Atacado</h2>
+      <p>Confira abaixo nossas 4 linhas exclusivas com envio imediato direto da fábrica.</p>
     </div>
   </div>
   <div class="stock-grid">
-    <div class="stock-tile"><img src="estoque-1.jpg" alt="Estoque Bradok — prateleiras" loading="lazy"></div>
-    <div class="stock-tile"><img src="estoque-2.jpg" alt="Estoque Bradok — peças embaladas" loading="lazy"></div>
-    <div class="stock-tile"><img src="estoque-3.jpg" alt="Estoque Bradok — etiquetas originais" loading="lazy"></div>
+    <a class="stock-tile" href="https://atacador.com.br/categoria-produto/1-camiseta-malha-egipcia/?v=jesse" target="_blank" rel="noopener">
+      <img src="https://atacador.com.br/categoria-produto/1-camiseta-malha-egipcia/?v=jesse" alt="Malha Egípcia" loading="lazy">
+      <div class="stock-tile-overlay">
+        <span class="stock-tile-title">Egípcia</span>
+      </div>
+    </a>
+    <a class="stock-tile" href="https://atacador.com.br/categoria-produto/5-camisetas-peruanas-pima-40-1/" target="_blank" rel="noopener">
+      <img src="https://atacador.com.br/categoria-produto/5-camisetas-peruanas-pima-40-1/" alt="Camisetas Peruanas" loading="lazy">
+      <div class="stock-tile-overlay">
+        <span class="stock-tile-title">Peruanas</span>
+      </div>
+    </a>
+    <a class="stock-tile" href="https://atacador.com.br/categoria-produto/4-polos-peruanas/?v=jesse" target="_blank" rel="noopener">
+      <img src="https://atacador.com.br/categoria-produto/4-polos-peruanas/?v=jesse" alt="Polos Peruanas" loading="lazy">
+      <div class="stock-tile-overlay">
+        <span class="stock-tile-title">Polos</span>
+      </div>
+    </a>
+    <a class="stock-tile" href="https://atacador.com.br/categoria-produto/camiseta-nacional-30-1/?v=jesse" target="_blank" rel="noopener">
+      <img src="https://atacador.com.br/categoria-produto/camiseta-nacional-30-1/?v=jesse" alt="Nacional 30.1" loading="lazy">
+      <div class="stock-tile-overlay">
+        <span class="stock-tile-title">Nacional 30.1</span>
+      </div>
+    </a>
   </div>
 </section>
 
@@ -419,7 +452,7 @@
     <div class="product reveal">
       <div class="product-img">
         <span class="product-tag">Mais Vendida</span>
-        <img src="egipcia.jpg" alt="Camiseta Malha Egípcia" loading="lazy">
+        <img src="https://atacador.com.br/categoria-produto/1-camiseta-malha-egipcia/?v=jesse" alt="Camiseta Malha Egípcia" loading="lazy">
       </div>
       <div class="product-body">
         <h3>Camiseta Egípcia</h3>
@@ -434,14 +467,14 @@
     <div class="product reveal">
       <div class="product-img">
         <span class="product-tag">Linha Nobre</span>
-        <img src="peruana.jpg" alt="Camiseta Peruana Pima" loading="lazy">
+        <img src="https://atacador.com.br/categoria-produto/5-camisetas-peruanas-pima-40-1/" alt="Camiseta Peruana Pima" loading="lazy">
       </div>
       <div class="product-body">
         <h3>Camiseta Peruana</h3>
         <p>Algodão Pima 40.1 com elasticidade e máximo conforto no corpo.</p>
         <div class="product-foot">
           <div class="product-price">A partir de <b>R$ 43,00</b></div>
-          <a class="product-link" href="https://atacador.com.br/categoria-produto/5-camisetas-peruanas-pima-40-1/?v=jesse" target="_blank" rel="noopener">Ver Modelos →</a>
+          <a class="product-link" href="https://atacador.com.br/categoria-produto/5-camisetas-peruanas-pima-40-1/" target="_blank" rel="noopener">Ver Modelos →</a>
         </div>
       </div>
     </div>
@@ -449,7 +482,7 @@
     <div class="product reveal">
       <div class="product-img">
         <span class="product-tag">Elegância Premium</span>
-        <img src="polo.jpg" alt="Polo Peruana" loading="lazy">
+        <img src="https://atacador.com.br/categoria-produto/4-polos-peruanas/?v=jesse" alt="Polo Peruana" loading="lazy">
       </div>
       <div class="product-body">
         <h3>Polos Peruanas</h3>
@@ -464,7 +497,7 @@
     <div class="product reveal">
       <div class="product-img">
         <span class="product-tag">Promoção Exclusiva</span>
-        <img src="nacional.jpg" alt="Camiseta Nacional 30.1" loading="lazy">
+        <img src="https://atacador.com.br/categoria-produto/camiseta-nacional-30-1/?v=jesse" alt="Camiseta Nacional 30.1" loading="lazy">
       </div>
       <div class="product-body">
         <h3>Nacional 30.1 Peletizado</h3>
